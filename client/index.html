@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survival Game</title>
+    <script type="text/javascript">
+        // Audio 객체생성 ①
+        // var audio = new Audio('./lucky.mp3');
+  
+        // Audio 객체생성 ②
+        var audio = new Audio();
+        //audio.src = "http://localhost:3002/audio/62051c845bf719b2587f1aec";
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script>
@@ -11,6 +19,31 @@
 <body>
     <button>시작/종료</button> <br /><br />
     <audio controls>녹음된 소리를 재생할 audio 엘리먼트</audio>
+
+
+
+    <div class="container mt-3">
+      <form action="/audio" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>제목</label>
+          <input type="text" class="form-control" name="title" />
+        </div>
+        <div class="form-group">
+          <label>내용</label>
+          <input type="text" class="form-control" name="singer" />
+        </div>
+
+        <div class="form-group">
+          <label>파일 첨부</label>
+          <input type="file" class="form-control" name="track" />
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary">Submit</button>
+      </form>
+    </div>
+
+
+
     <div id="survival-game"></div>
     <script type ="module" src="js/survival-game.js"></script>
     <script src ="js/audio.js"></script>
